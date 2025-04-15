@@ -138,10 +138,6 @@ No external dependencies.
 
 ## License
 
-Dolphin is open source under the GNU General Public License (GPL). You are free to study, modify, and distribute the code under the terms of that license.
+Dolphin is released under the MIT License. You are free to use, modify, and distribute the code with proper attribution.
 
 ---
-
-## Author
-
-Developed by a curious data science undergrad who got a little too deep into symbolic math and attention layers.
