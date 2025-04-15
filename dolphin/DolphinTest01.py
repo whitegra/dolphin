@@ -10,9 +10,8 @@ from dolphin.optimizers import Adam
 
 
 def main():
-    # -----------------------------
-    # 1. Load & Tokenize Dataset
-    # -----------------------------
+    # 1. load & tokenize dataset
+    
     nltk.download("brown")
     nltk.download("punkt")
 
@@ -20,9 +19,9 @@ def main():
     sentences = [" ".join(sent) for sent in sentences]
     tokenized = [word_tokenize(s.lower()) for s in sentences]
 
-    # -----------------------------
-    # 2. Build Vocabulary
-    # -----------------------------
+
+    # 2. build vocab
+    
     all_words = [w for s in tokenized for w in s]
     freq = {}
     for word in all_words:
@@ -32,9 +31,7 @@ def main():
     index_to_word = {i: w for w, i in word_to_index.items()}
     vocab_size = len(word_to_index)
 
-    # -----------------------------
-    # 3. Prepare Training Data
-    # -----------------------------
+    # 3. prepare training data
     seq_len = 4
     x_data, y_data = [], []
 
@@ -47,9 +44,8 @@ def main():
     x_train = Tensor(x_data)  # shape: (batch, seq_len)
     y_train = Tensor(y_data)  # shape: (batch, 1)
 
-    # -----------------------------
-    # 4. Config
-    # -----------------------------
+
+    # 4. config model
     embed_dim = 32
     num_heads = 2
     hidden_dim = 64
@@ -57,9 +53,7 @@ def main():
     epochs = 2
     lr = 0.01
 
-    # -----------------------------
-    # 5. Embeddings
-    # -----------------------------
+    # 5. embedings / embed input
     embedding_weights = Tensor([
         [random.uniform(-0.01, 0.01) for _ in range(embed_dim)]
         for _ in range(vocab_size)
@@ -75,9 +69,8 @@ def main():
             embedded.append(embedded_row)
         return Tensor(embedded, requires_grad=True)
 
-    # -----------------------------
-    # 6. Transformer Model
-    # -----------------------------
+    # 6. transformer model and encoders: 
+        
     encoder = [TransformerEncoderBlock(embed_dim, num_heads, hidden_dim) for _ in range(num_layers)]
 
     def transformer_forward(x):
@@ -94,15 +87,12 @@ def main():
             projected.append(proj_batch)
         return Tensor(projected, requires_grad=True)
 
-    # -----------------------------
-    # 7. Optimizer
-    # -----------------------------
+
+    # 7. optimizer
     params = [embedding_weights] + [v for block in encoder for v in vars(block).values() if isinstance(v, Tensor)]
     optimizer = Adam(params, lr=lr)
 
-    # -----------------------------
-    # 8. Train
-    # -----------------------------
+    # 8. train!
     print("\nTraining Dolphin Transformer...\n")
     for epoch in range(epochs):
         x_embed = embed_input(x_train)
@@ -118,9 +108,8 @@ def main():
 
     print("\nTraining complete.\n")
 
-    # -----------------------------
-    # 9. Generate Text
-    # -----------------------------
+    # 9. GENERATE TEXT! 
+    
     def generate_text(start_word, length=5):
         sequence = [word_to_index.get(start_word.lower(), 0)]
         for _ in range(length):
@@ -135,15 +124,14 @@ def main():
             sequence.append(next_idx)
         return " ".join(index_to_word.get(i, "<unk>") for i in sequence)
 
-    # -----------------------------
-    # 10. Results
-    # -----------------------------
+
+    # 10. results !!!!
     print("\nGenerated Text:")
     print(generate_text("the"))
     print(generate_text("science"))
     print(generate_text("they"))
 
 
-# This ensures the script only runs once when executed directly
+# this ensures the script only runs once when executed directly, will take somee time. 
 if __name__ == "__main__":
     main()
