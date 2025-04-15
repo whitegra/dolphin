@@ -31,7 +31,7 @@ A zero-dependency machine learning system:
 ---
 
 
-Dolphin is built to help researchers, students, and curious developers explore how large language models and attention mechanisms actually function—without abstractions.
+Dolphin is built to help researchers, students, and curious developers explore how large language models and attention mechanisms actually function, without abstractions.
 
 ---
 
