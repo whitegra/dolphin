@@ -3,7 +3,7 @@ An experimental transformer stack and symbolic computation engine built entirely
 
 ---
 
-## What is Dolphin?
+## What is dolphin?
 
 It implements deep learning architecture and training logic without relying on NumPy, PyTorch, or any external libraries. Every operation—tensor arithmetic, backpropagation, attention, and optimization—is executed through hand-written, minimal Python logic.
 The result is a transparent and flexible platform for understanding transformers, automatic differentiation, and the inner workings of modern ML, without hiding behind black-box libraries.
