@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - name: Gracie M. White
+    orcid: https://orcid.org/0009-0001-9565-3033
+title: "Dolphin: A Minimal Transformer Stack and Symbolic Computation Engine in Pure Python"
+version: 0.1.0
+date-released: 2025-04-15
+url: https://github.com/whitegra/dolphin
+license: MIT
+abstract: "Dolphin is a dependency-free transformer architecture and symbolic computation engine built entirely from first principles in raw Python. It supports forward and backward passes, matrix math, autograd, transformer attention mechanisms, and basic optimization, all without NumPy or PyTorch."
+keywords:
+  - transformer
+  - deep learning
+  - autodiff
+  - pure python
+  - neural networks
+  - symbolic computation
