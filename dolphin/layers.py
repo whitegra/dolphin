@@ -2,9 +2,6 @@ from .tensor import Tensor
 import random
 import math
 
-# -----------------------------
-# Linear Layer (Unchanged)
-# -----------------------------
 class Linear:
     def __init__(self, in_features, out_features):
         """
@@ -34,9 +31,6 @@ class Linear:
         else:
             return x.matmul(self.W) + self.b
 
-# -----------------------------
-# Fixed LayerNorm (No NumPy, Fully Compatible)
-# -----------------------------
 class LayerNorm:
     def __init__(self, embed_dim, eps=1e-5):
         """
