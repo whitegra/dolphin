@@ -1,8 +1,3 @@
-# dolphin. 
-An experimental transformer stack and symbolic computation engine built entirely from first principles in pure Python. No NumPy. No PyTorch. Zero dependencies. Just math and maximum transparency. 
-
----
-
 ## What is dolphin?
 
 It implements deep learning architecture and training logic without relying on NumPy, PyTorch, or any external libraries. Every operation—tensor arithmetic, backpropagation, attention, and optimization—is executed through hand-written, minimal Python logic.
