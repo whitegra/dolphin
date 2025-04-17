@@ -133,6 +133,58 @@ No external dependencies.
 
 ## License
 
-Dolphin is released under the MIT License. You are free to use, modify, and distribute the code with proper attribution.
+Dolphin is released under the MIT License. You are free to use, modify, and distribute the code (see Citation file)
 
 ---
+
+## Some Resources: 
+
+- **Start with Tensors. This is the foundation for everything else**
+  Think of it like a lego set. Tensors are your bricks, they are the basic building blocks of everything else. They handle data, operations, gradients, scalar differentiation, and form the foundation for learning. This is where you implement autodiff (automatic 
+  differentiation) and backpropagation, which lets your model learn from mistakes. Then, computation graphs, they show how tensors are connected and how gradients flow backward through the network. This is especially important for Transformers, but that's the last step.
+  
+- **My build order**
+  tensor engine (w/ autograd, etc) --> activations --> loss --> optimizers --> layers --> attention and transformers --> then training and sampling (aka, putting it all together).
+  Will be making a better doc to explain each part, and how each module builds on one another. 
+  
+## For learning Transformers and attention
+- **[Transformer using PyTorch | GeeksforGeeks](https://www.geeksforgeeks.org/transformer-using-pytorch/)**  
+  A walkthrough of how to implement a Transformer using PyTorch components. Great for understanding how encoder/decoder blocks fit together.
+- **[Attention is All You Need (paper)](https://arxiv.org/abs/1706.03762)**  
+  The original paper that introduced the Transformer architecture. Dense but worth reading (line by line with code nearby). 
+- **[Building a Transformer from Scratch: A Step-by-Step Guide](https://ebadsyed.medium.com/building-a-transformer-from-scratch-a-step-by-step-guide-d69cfa209ec3)**  
+  A walkthrough of Transformer internals, broken down piece by piece, no hidden libraries. A high level explanation. 
+- **[Python Lessons: Introduction to Transformers](https://pythonlessons.com/transformer-model/)**  
+  Breakdown of the transformer model with annotated code and explanations.
+- **[Transformers Explained](https://towardsdatascience.com/transformers-explained-visually-part-1-overview-of-functionality-95a6dd460452/)**
+  Explains how transformers work (visually). This is part 1, there are a couple different articles here that are really helpful. 
+
+## For autodiff and Minimal Engines
+- **[karpathy/micrograd](https://github.com/karpathy/micrograd)**  
+  A tiny scalar-valued autograd engine and neural net library. Teaches how autodiff works w/ a PyTorch style API
+- **[tinygrad/tinygrad](https://github.com/tinygrad/tinygrad)**  
+  Like PyTorch but tiny (and readable). Implements both forward and backward passes, and can run on GPUs.
+- **[rsokl/MyGrad](https://github.com/rsokl/MyGrad)**  
+  Drop in automatic differentiation for NumPy. 
+
+## Training GPTs and some Tensor building 
+- **[karpathy/minGPT](https://github.com/karpathy/minGPT)**  
+  A minimal PyTorch reimplementation of OpenAI’s GPT architecture.
+- **[karpathy/nanoGPT](https://github.com/karpathy/nanoGPT)**  
+  Simple repo to train/finetune GPT-style models, trains GPTs on single GPUs.
+- **[easy-tensorflow/easy-tensorflow](https://github.com/easy-tensorflow/easy-tensorflow)**
+  Explains TensorFlow components and how they work. 
+
+## Neural Nets and Optimizers
+- **[ShivamShrirao/dnn_from_scratch](https://github.com/ShivamShrirao/dnn_from_scratch)**  
+  Implements CNNs, GANs, and more using only NumPy/CuPy, for low-level deep learning system design.
+- **[Writing ML Optimizers from Scratch | Quassarian Viper](https://q-viper.github.io/2022/04/01/optimizers.html)**  
+  A walkthrough of optimizers like SGD, Adam, RMSProp, all coded from scratch in Python.
+- **[q-viper/ML-from-Basics](https://github.com/q-viper/ML-from-Basics)**  
+  Minimal implementations of core ML algorithms like linear regression, SVMs, and more
+- **[Deep Learning from Scratch | Seth Weidman](https://www.amazon.com/Deep-Learning-Scratch-Building-Principles/dp/9352139022)**  
+  Book that builds neural networks from first principles in Python, theory and code.
+
+This is a work in progress, and will be updated frequently :)
+---
+
