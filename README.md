@@ -133,7 +133,7 @@ No external dependencies.
 
 ## License
 
-Dolphin is released under the MIT License. You are free to use, modify, and distribute the code (see Citation file)
+Dolphin is released under the MIT License.
 
 ---
 
